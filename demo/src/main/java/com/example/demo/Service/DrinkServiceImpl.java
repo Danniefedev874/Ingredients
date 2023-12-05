@@ -1,107 +1,67 @@
-package com.example.demo.Service;
+package com.example.demo3.Service;
 
-import com.example.demo.Repository.DrinkRepository;
-import com.example.demo.domain.Drink;
+import com.example.demo3.Domain.Drink;
+import com.example.demo3.Repository.DrinkRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+
 @Service
-<<<<<<< HEAD
 public class DrinkServiceImpl implements DrinkService{
-
-    @Autowired
-    DrinkRepository  drinkRepository;
-
-    @Override
-    public Drink saveDrink(Drink drink) {
-        return null;
-=======
-public class DrinkServiceImpl implements DrinkService {
-
     @Autowired
     DrinkRepository drinkRepository;
-
     @Override
     public Drink saveDrink(Drink drink) {
         return drinkRepository.save(drink);
->>>>>>> 955f47c (First Commit for ingredients)
     }
+
 
     @Override
     public Drink getDrinkById(long id) {
-<<<<<<< HEAD
-        return null;
-    }
-
-    @Override
-    public List<Drink> getallDrink() {
-        return null;
-    }
-
-    @Override
-    public Drink updateDrink(Drink drink, long id) {
-        return null;
-=======
         Optional<Drink> drink = drinkRepository.findById(id);
 
         Drink emptyDrink = null;
         if (drink.isPresent()){
-        emptyDrink = drink.get();
-        return emptyDrink;
-    }else {
-        throw new RuntimeException("Drink not Found");
+            emptyDrink = drink.get();
+            return emptyDrink;
+        } else {
+            throw new RuntimeException("Drink Not Found");
+        }
     }
-}
 
     @Override
-    public List<Drink> getallDrink() {
+    public List<Drink> getAllDrink() {
         return drinkRepository.findAll();
->>>>>>> 955f47c (First Commit for ingredients)
     }
+
 
 
     @Override
     public Drink updateDrink(Drink drink) {
-<<<<<<< HEAD
-        Optional<Drink> optionalDrink = drinkRepository.findById(getallDrink());
-=======
         Optional<Drink> optionalDrink = drinkRepository.findById(drink.getId());
->>>>>>> 955f47c (First Commit for ingredients)
+
         if (optionalDrink.isPresent()){
             Drink updateDrink = new Drink();
             updateDrink.setCapacity(drink.getCapacity());
-            updateDrink.setColour(drink.getColour());
-            updateDrink.setCompany(drink.getCompany());
+            updateDrink.setColor(drink.getColor());
             updateDrink.setName(drink.getName());
             updateDrink.setType(drink.getType());
+            updateDrink.setCompany(drink.getCompany());
             updateDrink.setId(drink.getId());
-            updateDrink.setIngredientList(drink.getIngredientList());
+            updateDrink.setIngredients(drink.getIngredients());
 
             drinkRepository.save(updateDrink);
-<<<<<<< HEAD
-        }
-        return null;
-=======
             return updateDrink;
-        } else {
-            throw new RuntimeException("Drink was not found");
+        } else{
+            throw new RuntimeException("Drink does not exist");
         }
->>>>>>> 955f47c (First Commit for ingredients)
+
     }
 
     @Override
     public void deleteDrinkById(long id) {
-<<<<<<< HEAD
-
+        drinkRepository.deleteById(id);
     }
 }
-=======
-     drinkRepository.deleteById(id);
-    }
-}
-
->>>>>>> 955f47c (First Commit for ingredients)
-
-

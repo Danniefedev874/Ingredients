@@ -1,30 +1,14 @@
-package com.example.demo.Service;
+package com.example.demo3.Service;
 
-import com.example.demo.domain.Drink;
+import com.example.demo3.Domain.Drink;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public interface DrinkService {
-<<<<<<< HEAD
-    static Drink saveDrink(Drink drink) {
-        return null;
-    }
-=======
-
->>>>>>> 955f47c (First Commit for ingredients)
-
     Drink saveDrink(Drink drink);
-
     Drink getDrinkById(long id);
-    List<Drink> getallDrink();
-
-<<<<<<< HEAD
-    Drink updateDrink(Drink drink, long id);
-=======
-//    Drink updateDrink(Drink drink, long id);
->>>>>>> 955f47c (First Commit for ingredients)
-
+    List<Drink> getAllDrink();
     Drink updateDrink(Drink drink);
     void deleteDrinkById(long id);
 }
-

@@ -1,23 +1,20 @@
-package com.example.demo.Repository;
+package com.example.demo3.Repository;
 
-import com.example.demo.domain.Drink;
+import com.example.demo3.Domain.Drink;
 import org.springframework.data.jpa.repository.JpaRepository;
-<<<<<<< HEAD
-=======
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
->>>>>>> 955f47c (First Commit for ingredients)
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
-import java.util.Optional;
-
-<<<<<<< HEAD
-public interface DrinkRepository extends JpaRepository<Drink, Long> {
-    List<Drink> findDrinkByPrice(int price);
 
 
-    Optional<Drink> findById(List<Drink> drinks);
-=======
 @Repository
 public interface DrinkRepository extends JpaRepository<Drink, Long> {
->>>>>>> 955f47c (First Commit for ingredients)
+
+//    Drink(type); Long(id type)
+//    you can also write your own custom query using: @Query("")
+//    List<Drink> findDrinkByPriceGreaterThan(int price);
+
+//    this repositpry helps us interact with our database
 }
