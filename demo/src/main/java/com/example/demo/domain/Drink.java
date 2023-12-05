@@ -1,9 +1,18 @@
 package com.example.demo.domain;
 
+<<<<<<< HEAD
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 
+=======
+import jakarta.persistence.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.ValueGenerationType;
+
+import java.sql.Date;
+>>>>>>> 955f47c (First Commit for ingredients)
 import java.util.List;
 
 @Entity(name="drink")
@@ -19,7 +28,11 @@ public class Drink {
         this.ingredientList = ingredientList;
     }
 
+<<<<<<< HEAD
     public Drink(String name, int capacity, String colour, String type, String company, int price, List<Ingredient> ingredientList, Long id) {
+=======
+    public Drink(String name, int capacity, String colour, String type, String company, int price, List<Ingredient> ingredientList, Long id, Date created_date, Date update_date) {
+>>>>>>> 955f47c (First Commit for ingredients)
         this.name = name;
         this.capacity = capacity;
         this.colour = colour;
@@ -28,9 +41,18 @@ public class Drink {
         this.ingredientList = ingredientList;
         this.id = id;
         this.price = price;
+<<<<<<< HEAD
 
     }
 
+=======
+        this.created_date = created_date;
+        this.update_date = update_date;
+
+    }
+
+
+>>>>>>> 955f47c (First Commit for ingredients)
     private String name;
     private int capacity;
     private String colour;
@@ -38,9 +60,22 @@ public class Drink {
     private String company;
     private int price;
 
+<<<<<<< HEAD
     @OneToMany
     private List<Ingredient> ingredientList;
     @Id
+=======
+    @CreationTimestamp
+    private Date created_date;
+
+    @UpdateTimestamp
+    private Date update_date;
+
+    @OneToMany
+    private List<Ingredient> ingredientList;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO )
+>>>>>>> 955f47c (First Commit for ingredients)
     private Long id;
 
     public String getName() {
